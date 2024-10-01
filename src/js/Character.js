@@ -1,8 +1,8 @@
 export default class Character {
   constructor(name, type){  
-  this.name = createCharName(name);
-  this.health = 100;
-  this.level = 1;  
+    this.name = createCharName(name);
+    this.health = 100;
+    this.level = 1;  
 
   function createCharName(name) {
     try {
@@ -21,32 +21,17 @@ export default class Character {
   try {
     if (type == 'Bowman' || type == 'Swordsman' || type == 'Magician'
           || type == 'Undead' || type == 'Zombie' || type == 'Daemon') {
-            if (type == 'Bowman') {               
+            if (type == 'Bowman' || type == 'Undead') {               
               this.type = type;
               this.attack = 25;
               this.defence = 25;
             } 
-            if (type == 'Swordsman') {               
+            if (type == 'Swordsman' || type == 'Zombie') {               
               this.type = type;
               this.attack = 40;
               this.defence = 10;
             } 
-            if (type == 'Magician') {               
-              this.type = type;
-              this.attack = 10;
-              this.defence = 40;
-            } 
-            if (type == 'Undead') {               
-              this.type = type;
-              this.attack = 25;
-              this.defence = 25;
-            } 
-            if (type == 'Zombie') {               
-              this.type = type;
-              this.attack = 40;
-              this.defence = 100;
-            } 
-            if (type == 'Daemon') {               
+            if (type == 'Magician' || type == 'Daemon') {               
               this.type = type;
               this.attack = 10;
               this.defence = 40;
