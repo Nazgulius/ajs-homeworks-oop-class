@@ -1,44 +1,61 @@
-export default class Character (name, type) {
-  this.name = createCharacter(name);
-  this.type = createCharacter(type);
+export default class Character {
+  constructor(name, type){  
+  this.name = createCharName(name);
   this.health = 100;
   this.level = 1;  
 
-  function createCharacter(name) {
+  function createCharName(name) {
     try {
       if (name.length > 1 && name.length < 11) {
             return {
               name: name,
             }
       } else {
-        throw new Error('error in else name');
+        throw new Error('Name mistake. The name must be between 2 and 10 characters.');
       }      
     } catch (error) {
-      throw new Error(error);
+      console.log(error);
     }
+  }  
+  
+  try {
+    if (type == 'Bowman' || type == 'Swordsman' || type == 'Magician'
+          || type == 'Undead' || type == 'Zombie' || type == 'Daemon') {
+            if (type == 'Bowman') {               
+              this.type = type;
+              this.attack = 25;
+              this.defence = 25;
+            } 
+            if (type == 'Swordsman') {               
+              this.type = type;
+              this.attack = 40;
+              this.defence = 10;
+            } 
+            if (type == 'Magician') {               
+              this.type = type;
+              this.attack = 10;
+              this.defence = 40;
+            } 
+            if (type == 'Undead') {               
+              this.type = type;
+              this.attack = 25;
+              this.defence = 25;
+            } 
+            if (type == 'Zombie') {               
+              this.type = type;
+              this.attack = 40;
+              this.defence = 100;
+            } 
+            if (type == 'Daemon') {               
+              this.type = type;
+              this.attack = 10;
+              this.defence = 40;
+            } 
+    } else {
+      throw new Error('Type error. The type can be: Bowerman, Swordsman, Magician, Daemon, Undead, Zombie.');
+    }      
+  } catch (error) {
+    console.log(error);
   }
-  function createCharacter(type) {
-    try {
-      if (type == Bowman || type == Swordsman || type == Magician
-           || type == Undead || type == Zombie || type == Daemon) {
-            return {              
-              type: type,
-            }
-      } else {
-        throw new Error('error in else type');
-      }      
-    } catch (error) {
-      throw new Error(error);
-    }
   }
-/*
-  default   
-  Атака/защита:
-    Bowman: 25/25
-    Swordsman: 40/10
-    Magician: 10/40
-    Undead: 25/25
-    Zombie: 40/10
-    Daemon: 10/40
-  */
 }
