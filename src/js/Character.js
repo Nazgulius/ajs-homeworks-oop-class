@@ -4,21 +4,20 @@ export default class Character {
     this.health = 100;
     this.level = 1;  
 
-  function createCharName(name) {
-    try {
-      if (name.length > 1 && name.length < 11) {
-            return {
-              name: name,
-            }
-      } else {
-        throw new Error('Name mistake. The name must be between 2 and 10 characters.');
-      }      
-    } catch (error) {
-      console.log(error);
-    }
-  }  
+    function createCharName(name) {
+      try {
+        if (name.length > 1 && name.length < 11) {
+              return {
+                name: name,
+              }
+        } else {
+          throw new Error('Name mistake. The name must be between 2 and 10 characters.');
+        }      
+      } catch (error) {
+        console.log(error);
+      }
+    }  
   
-  try {
     if (type == 'Bowman' || type == 'Swordsman' || type == 'Magician'
           || type == 'Undead' || type == 'Zombie' || type == 'Daemon') {
             if (type == 'Bowman' || type == 'Undead') {               
@@ -38,9 +37,6 @@ export default class Character {
             } 
     } else {
       throw new Error('Type error. The type can be: Bowerman, Swordsman, Magician, Daemon, Undead, Zombie.');
-    }      
-  } catch (error) {
-    console.log(error);
-  }
+    }
   }
 }
