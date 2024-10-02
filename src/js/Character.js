@@ -1,42 +1,23 @@
 export default class Character {
-  constructor(name, type){  
-    this.name = createCharName(name);
+  constructor(name, type){      
     this.health = 100;
     this.level = 1;  
 
-    function createCharName(name) {
-      try {
-        if (name.length > 1 && name.length < 11) {
-              return {
-                name: name,
-              }
-        } else {
-          throw new Error('Name mistake. The name must be between 2 and 10 characters.');
-        }      
-      } catch (error) {
-        console.log(error);
-      }
-    }  
-  
-    if (type == 'Bowman' || type == 'Swordsman' || type == 'Magician'
-          || type == 'Undead' || type == 'Zombie' || type == 'Daemon') {
-            if (type == 'Bowman' || type == 'Undead') {               
-              this.type = type;
-              this.attack = 25;
-              this.defence = 25;
-            } 
-            if (type == 'Swordsman' || type == 'Zombie') {               
-              this.type = type;
-              this.attack = 40;
-              this.defence = 10;
-            } 
-            if (type == 'Magician' || type == 'Daemon') {               
-              this.type = type;
-              this.attack = 10;
-              this.defence = 40;
-            } 
+    this.attack = undefined;
+    this.defebce = undefined;
+
+    if (name.length > 1 && name.length < 11) {
+      this.name = name;
     } else {
+      throw new Error('Name mistake. The name must be between 2 and 10 characters.');
+    }    
+    
+    const types = ['Bowerman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
+
+    if (!types.includes(type)) {  
       throw new Error('Type error. The type can be: Bowerman, Swordsman, Magician, Daemon, Undead, Zombie.');
+    } else {
+      this.type = type;
     }
   }
 }
